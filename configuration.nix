@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -65,6 +65,17 @@
     kitty
     waybar
     rofi
+    unzip
+
+    # frc
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.elastic-dashboard
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.pathplanner
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.roborioteamnumbersetter
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.sysid
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.wpilib-utility
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.advantagescope
+
+
   ];
 
   nixpkgs.config.allowUnfree = true;
