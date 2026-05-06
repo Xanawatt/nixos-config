@@ -89,6 +89,8 @@
     plex-desktop
     securecrt
     file
+    onedrive
+    hyprlock
   ];
 
   fonts.packages = with pkgs; [
