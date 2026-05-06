@@ -13,11 +13,21 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+    let
+      pkgs-overlay = final: prev: {
+        securecrt = prev.callPackage ./common/securecrt.nix { };
+      };
+    in
+    {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
+        ({ config, pkgs, ... }: {
+          # Make securecrt available"
+          nixpkgs.overlays = [ pkgs-overlay ];
+        }) 
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {

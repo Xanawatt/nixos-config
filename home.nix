@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    waybar = "waybar";
+#    waybar = "waybar";
     hypr = "hypr";
   };
 in
@@ -14,6 +14,8 @@ in
 {
   imports = [
     ./modules/git/default.nix
+    ./modules/waybar/default.nix
+#    ./modules/vscode/default.nix
   ];
 
   home.username = "xanawatt";
@@ -27,7 +29,7 @@ in
     };
   };
   home.packages = with pkgs; [
-    vscode
+#    vscode
   ];
   #home.file.".config/waybar".source = ./config/waybar;
   #home.file.".config/hypr".source = ./config/hypr;

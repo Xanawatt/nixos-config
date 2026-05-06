@@ -4,6 +4,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/vscode/default.nix
+#      ./modules/waybar/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -74,17 +76,39 @@
     inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.sysid
     inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.wpilib-utility
     inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.advantagescope
+    inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.vscode-wpilib
 
+    grim
+#    wayrecorder
+    slurp
+    wl-clipboard
 
+    slack
+    jq
+    spotify
+    plex-desktop
+    securecrt
+    file
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.symbols-only
+  ];
+
+  nixpkgs.config.allowUnfree = true;    
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # this is to fix vscode
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  environment.sessionVariables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
   programs.nix-ld.enable = true;
 
   networking.firewall.enable = false;
