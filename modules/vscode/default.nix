@@ -74,7 +74,7 @@ let
 #      pkg-config
 #      jdt-language-server
 #      libglvnd
-#      libGL
+      libGL
 #      glfw
 #      libX11
 #      libXScrnSaver
@@ -122,7 +122,7 @@ let
       vscjava.vscode-gradle
 
       # the extension pack won't work with java
-      # vscjava.vscode-java-pack
+      vscjava.vscode-java-pack
 
       # wpilib vscode installs these
       ms-vscode.cpptools

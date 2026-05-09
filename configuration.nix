@@ -91,6 +91,7 @@
     file
     onedrive
     hyprlock
+    openjdk17
   ];
 
   fonts.packages = with pkgs; [
@@ -111,7 +112,13 @@
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
-  programs.nix-ld.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libGL
+    ];
+  };
 
   networking.firewall.enable = false;
 
