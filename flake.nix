@@ -21,25 +21,29 @@
       };
     in
     {
-    nixosConfigurations.nixos-test = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ({ config, pkgs, ... }: {
-          # Make securecrt available"
-          nixpkgs.overlays = [ pkgs-overlay ];
-        }) 
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.xanawatt = import ./home.nix;
-            backupFileExtension = "backup";
-          };
-        }
-      ];
+    nixosConfigurations = {
+      nixos-test = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ({ config, pkgs, ... }: {
+            # Make securecrt available"
+            nixpkgs.overlays = [ pkgs-overlay ];
+          })
+          ./machines/nixos-test
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.xanawatt = import ./machines/nixos-test/home.nix;
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
+
+      # Other hosts here
     };
   };
 }
