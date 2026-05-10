@@ -92,6 +92,8 @@
     onedrive
     hyprlock
     openjdk17
+    mtr
+    iperf3
   ];
 
   fonts.packages = with pkgs; [
