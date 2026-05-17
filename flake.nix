@@ -43,5 +43,6 @@
 
       # Other hosts here
     };
+    templates = import ./dev-shells;
   };
 }

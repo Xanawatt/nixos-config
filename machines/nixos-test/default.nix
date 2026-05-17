@@ -62,7 +62,7 @@
     git
     alacritty
     pkgs.nix-ld
-    unstable.hyprland
+    hyprland
     hyprpaper
     foot
     kitty
