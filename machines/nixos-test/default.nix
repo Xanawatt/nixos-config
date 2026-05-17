@@ -62,6 +62,7 @@
     git
     alacritty
     pkgs.nix-ld
+    unstable.hyprland
     hyprpaper
     foot
     kitty
@@ -94,6 +95,7 @@
     openjdk17
     mtr
     iperf3
+    gns3-gui
   ];
 
   fonts.packages = with pkgs; [
