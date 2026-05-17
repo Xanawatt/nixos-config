@@ -12,9 +12,14 @@
       url = "github:frc4451/frc-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.agenix.inputs.darwin.follows = "";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, agenix, home-manager, ... }:
     {
     nixosConfigurations = {
       nixos-test = nixpkgs.lib.nixosSystem {
@@ -28,6 +33,7 @@
             # Make securecrt and unstable available"
             nixpkgs.overlays = import ./overlays { inherit inputs; };
           })
+          agenix.nixosModules.default
           ./machines/nixos-test
           home-manager.nixosModules.home-manager
           {

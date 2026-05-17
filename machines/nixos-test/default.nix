@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/vscode/default.nix
+      ../../modules/wireguard/default.nix
 #      ./modules/waybar/default.nix
     ];
 
@@ -98,6 +99,8 @@
     gns3-gui
 
     lazygit
+    wireguard-tools
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
@@ -125,6 +128,8 @@
       libGL
     ];
   };
+
+  age.secrets.wireguard.file = "${config.users.users.xanawatt.home}/.secrets/wireguard.age";
 
   networking.firewall.enable = false;
 
