@@ -96,6 +96,8 @@
     mtr
     iperf3
     gns3-gui
+
+    lazygit
   ];
 
   fonts.packages = with pkgs; [
