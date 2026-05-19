@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ../../modules/vscode/default.nix
       ../../modules/wireguard/default.nix
+      ../../modules/asdm/default.nix
 #      ./modules/waybar/default.nix
     ];
 
@@ -127,6 +128,10 @@
     libraries = with pkgs; [
       libGL
     ];
+  };
+
+  services.asdm = {
+    enable = true;
   };
 
   age.secrets.wireguard.file = "${config.users.users.xanawatt.home}/.secrets/wireguard.age";
