@@ -64,7 +64,7 @@
     git
     alacritty
     pkgs.nix-ld
-    hyprland
+    unstable.hyprland
     hyprpaper
     foot
     kitty
@@ -137,6 +137,12 @@
   age.secrets.wireguard.file = "${config.users.users.xanawatt.home}/.secrets/wireguard.age";
 
   networking.firewall.enable = false;
+
+#  hardware.bluetooth = {
+#    enable = true;
+#    powerOnBoot = false;
+#  };
+
 
   system.stateVersion = "25.11"; # Did you read the comment?
 
