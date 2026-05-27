@@ -6,7 +6,8 @@
       ./hardware-configuration.nix
       ../../modules/vscode/default.nix
       ../../modules/wireguard/default.nix
-      ../../modules/asdm/default.nix
+#      ../../modules/asdm/default.nix
+      ../../modules/zen/default.nix
 #      ./modules/waybar/default.nix
     ];
 
@@ -66,6 +67,7 @@
     pkgs.nix-ld
     unstable.hyprland
     hyprpaper
+    unstable.hyprlock
     foot
     kitty
     waybar
@@ -93,10 +95,10 @@
     securecrt
     file
     onedrive
-    hyprlock
     openjdk17
     mtr
     iperf3
+    htop
     gns3-gui
 
     lazygit
@@ -130,9 +132,9 @@
     ];
   };
 
-  services.asdm = {
-    enable = true;
-  };
+#  services.asdm = {
+#    enable = true;
+#  };
 
   age.secrets.wireguard.file = "${config.users.users.xanawatt.home}/.secrets/wireguard.age";
 
