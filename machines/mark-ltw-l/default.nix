@@ -160,6 +160,12 @@
     powerOnBoot = false;
   };
 
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
 
   system.stateVersion = "26.05"; # Did you read the comment?
 
