@@ -51,6 +51,31 @@
         ];
       };
 
+      mark-ltw-l = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          overlays = import ./overlays { inherit inputs; };
+          inherit self inputs;
+        };
+        modules = [
+          ({ pkgs, ... }: {
+            # Mark securecrt and unstable available
+            nixpkgs.overlays = import ./overlays { inherit inputs; };
+          })
+          agenix.nixosModules.default
+          ./machines/mark-ltw-l
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.schne112 = import ./machines/mark-ltw-l/home.nix;
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
+
       # Other hosts here
     };
     templates = import ./dev-shells;

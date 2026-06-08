@@ -140,7 +140,7 @@ in
 
           battery = {
             interval = 5;
-            bat = "BAT1";
+            bat = "BAT0";
             # full-at = 94;
             format = "{icon} {capacity}%";
             format-icons = [

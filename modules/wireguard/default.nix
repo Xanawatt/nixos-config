@@ -8,6 +8,7 @@
         "fd0b:4d5b:38d9:5101::7/64"
         "2001:470:c0ec:5101::7/64"
       ];
+      dns = [ "192.168.53.53" ];
       privateKeyFile = config.age.secrets.wireguard.path;
       peers = [
         {
