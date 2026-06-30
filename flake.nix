@@ -21,6 +21,7 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    parsecgaming.url = "github:DarthPJB/parsec-gaming-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, agenix, home-manager, ... }:

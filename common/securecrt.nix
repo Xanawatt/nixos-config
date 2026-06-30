@@ -67,9 +67,9 @@ in stdenv.mkDerivation rec {
     #wrapProgram "$out/bin/SecureCRT" --set QT_QPA_PLATFORM_PLUGIN_PATH "$out/lib/scrt/plugins/platforms"
 
     wrapProgram "$out/bin/SecureCRT" \
-      --set QT_QPA_PLATFORM_PLUGIN_PATH "$out/lib/scrt/plugins/platforms" \
-      --set QT_QPA_PLATFORM xcb \
-      --set QT_SCALE_FACTOR 1.5    
+      --set QT_QPA_PLATFORM_PLUGIN_PATH "$out/lib/scrt/plugins/platforms" #\
+#      --set QT_QPA_PLATFORM xcb #\
+#      --set QT_SCALE_FACTOR 1.5    
     runHook postInstall
   '';
 

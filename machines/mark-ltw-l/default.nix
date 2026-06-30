@@ -1,4 +1,8 @@
 { config, lib, pkgs, inputs, ... }:
+let
+  sassafras = pkgs.callPackage ../../modules/sassafras/package.nix {};
+in
+
 
 {
   imports =
@@ -6,9 +10,10 @@
       ./hardware-configuration.nix
       ../../modules/vscode/default.nix
       ../../modules/wireguard/default.nix
-#      ../../modules/asdm/default.nix
+      ../../modules/asdm/default.nix
       ../../modules/zen/default.nix
 #      ./modules/waybar/default.nix
+      ../../modules/sassafras/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -114,6 +119,17 @@
     dunst
     obsidian
     kdePackages.dolphin
+    teams-for-linux
+    python314
+    google-chrome
+    inputs.parsecgaming.packages.x86_64-linux.parsecgaming
+    net-tools
+    bluez
+    bluez-tools
+    quickshell
+
+    # work pkgs
+    sassafras
   ];
 
   fonts.packages = with pkgs; [
@@ -127,6 +143,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  programs.ssh.startAgent = true;
 
   # this is to fix vscode
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -142,9 +159,9 @@
     ];
   };
 
-#  services.asdm = {
-#    enable = true;
-#  };
+  services.asdm = {
+    enable = true;
+  };
 
   # for sublime4
   nixpkgs.config.permittedInsecurePackages = [
@@ -158,7 +175,17 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
+#    settings = {
+#      General = {
+#        ControllerMode = "bredr";
+#      };
+#    };
   };
+
+  services.udisks2.enable = true;
+
+  # work
+  services.sassafras.enable = true;
 
   nix = {
     settings = {
