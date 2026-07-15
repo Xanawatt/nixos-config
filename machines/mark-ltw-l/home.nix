@@ -28,6 +28,13 @@ in
       btw = "echo i use nixos, btw";
     };
   };
+
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true;
+    tray = "auto";
+  };
   home.packages = with pkgs; [
 #    vscode
   ];

@@ -118,7 +118,6 @@ in
     sublime4
     dunst
     obsidian
-    kdePackages.dolphin
     teams-for-linux
     python314
     google-chrome
@@ -130,6 +129,15 @@ in
 
     # work pkgs
     sassafras
+    
+    nautilus
+
+    bottles
+    rpi-imager
+    openconnect
+    screen
+    putty
+    wireshark
   ];
 
   fonts.packages = with pkgs; [
@@ -183,6 +191,8 @@ in
   };
 
   services.udisks2.enable = true;
+
+  
 
   # work
   services.sassafras.enable = true;
