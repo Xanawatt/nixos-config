@@ -151,6 +151,7 @@ let
       # to debug the extension: ensure vscode-wpilib isn't included
       #
       # - this VSCode should be able to run the two "Extension.*" targets
+      streetsidesoftware.code-spell-checker
     ]
  #   ++ vscMarketplace
     ++ [ frcPkgs.vscode-wpilib ];

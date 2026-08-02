@@ -138,6 +138,8 @@ in
     screen
     putty
     wireshark
+    gh
+    ripgrep
   ];
 
   fonts.packages = with pkgs; [
