@@ -111,7 +111,7 @@ let
       frcPkgs.wpilib-utility
       frcPkgs.wpical
     ];
-  vscFhs = pkgs.vscode.fhsWithPackages (ps: with ps; fhsPkgs);
+  vscFhs = pkgs.unstable.vscode.fhsWithPackages (ps: with ps; fhsPkgs);
   vscExtensions =
     with pkgs.vscode-extensions;
     [
@@ -152,6 +152,7 @@ let
       #
       # - this VSCode should be able to run the two "Extension.*" targets
       streetsidesoftware.code-spell-checker
+      anthropic.claude-code
     ]
  #   ++ vscMarketplace
     ++ [ frcPkgs.vscode-wpilib ];

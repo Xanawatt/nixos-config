@@ -43,7 +43,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.schne112 = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "dialout" "docker"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
       fastfetch
@@ -140,7 +140,20 @@ in
     wireshark
     gh
     ripgrep
+    zoom-us
+    mpv
+    cifs-utils
+    net-snmp
+    inetutils
+    clatd
+
+    libreoffice
+    unstable.claude-code
   ];
+
+  virtualisation.docker = {
+    enable = true;
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -168,6 +181,8 @@ in
       libGL
     ];
   };
+
+  programs.thunar.enable = true;
 
   services.asdm = {
     enable = true;

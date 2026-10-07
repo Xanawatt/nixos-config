@@ -12,6 +12,10 @@
       url = "github:frc4451/frc-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+#    frc-nix = {
+#      url = "github:nullcubee/frc-nix/rev-hardware-client";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
