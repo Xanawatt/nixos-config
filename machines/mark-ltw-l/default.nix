@@ -14,6 +14,7 @@ in
       ../../modules/zen/default.nix
 #      ./modules/waybar/default.nix
       ../../modules/sassafras/default.nix
+      ../../modules/virtualization/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -48,6 +49,11 @@ in
       tree
       fastfetch
     ];
+  };
+
+  my.virtualisation = {
+    enable = true;
+    users = ["schne112"];
   };
 
   security.sudo.extraRules = [{
@@ -174,6 +180,9 @@ in
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
+
+  # remove space between each line on the terminal
+  programs.bash.interactiveShellInit = "PS1='[\u@\h:\w]\$ '";
 
   programs.nix-ld = {
     enable = true;
