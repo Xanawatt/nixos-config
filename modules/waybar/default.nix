@@ -299,6 +299,8 @@ in
             margin-right: 0.25em;
             margin-top: 0.4em;
             margin-bottom: 0.4em;
+            border: 2px solid transparent;
+            border-radius: 0.4em;
           }
           #workspaces button.hidden {
             background-color: @surface0;
@@ -308,6 +310,7 @@ in
           #workspaces button.active {
             background-color: shade(@blue, 0.7);
             color: @green;
+            border: 2px solid @blue;
           }
 
           #workspaces button:hover {
