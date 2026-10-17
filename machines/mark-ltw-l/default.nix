@@ -194,7 +194,7 @@ in
   programs.thunar.enable = true;
 
   services.asdm = {
-    enable = true;
+    enable = false;
   };
 
   # for sublime4
