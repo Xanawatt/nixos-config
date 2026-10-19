@@ -155,7 +155,13 @@ in
 
     libreoffice
     unstable.claude-code
+
+    # for media keys
+    playerctl
   ];
+
+  # playerctl keep track of which audio source played last
+  services.playerctld.enable = true;
 
   virtualisation.docker = {
     enable = true;
