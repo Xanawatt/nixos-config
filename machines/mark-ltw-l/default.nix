@@ -11,7 +11,7 @@ in
       ../../modules/vscode/default.nix
       ../../modules/wireguard/default.nix
       ../../modules/asdm/default.nix
-      ../../modules/zen/default.nix
+#      ../../modules/zen/default.nix
 #      ./modules/waybar/default.nix
       ../../modules/sassafras/default.nix
       ../../modules/virtualization/default.nix
