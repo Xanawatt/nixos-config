@@ -10,6 +10,7 @@ in
       ./hardware-configuration.nix
       ../../modules/vscode/default.nix
       ../../modules/wireguard/default.nix
+      ../../modules/networking/default.nix
       ../../modules/asdm/default.nix
 #      ../../modules/zen/default.nix
 #      ./modules/waybar/default.nix
@@ -22,8 +23,6 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "mark-ltw-l";
-  networking.networkmanager.enable = true;
-
   networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   # Set your time zone.
@@ -211,6 +210,9 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
   ];
+
+  # WireGuard on demand: systemctl start|stop wg-quick-yuuko
+  networking.wg-quick.interfaces.yuuko.autostart = false;
 
   age.secrets.wireguard.file = "${config.users.users.schne112.home}/.secrets/wireguard.age";
 
