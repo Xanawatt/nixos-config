@@ -24,8 +24,10 @@ in
   networking.hostName = "mark-ltw-l";
   networking.networkmanager.enable = true;
 
+  networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
+
   # Set your time zone.
-  time.timeZone = "America/Indiana/Indianapolis";
+  time.timeZone = "America/Chicago";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -158,6 +160,8 @@ in
 
     # for media keys
     playerctl
+
+    eduvpn-client
   ];
 
   # playerctl keep track of which audio source played last
