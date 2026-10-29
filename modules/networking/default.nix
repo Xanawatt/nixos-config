@@ -63,4 +63,15 @@
 
   virtualisation.libvirtd.allowedBridges = [ "virbr0" "br-vm" ];
   networking.firewall.trustedInterfaces = [ "br-vm" ];
+
+  # Lets the quickshell VPN toggle start/stop the tunnel without a password
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          action.lookup("unit") == "wg-quick-yuuko.service" &&
+          subject.user == "schne112") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 }

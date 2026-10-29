@@ -16,6 +16,8 @@ in
 #      ./modules/waybar/default.nix
       ../../modules/sassafras/default.nix
       ../../modules/virtualization/default.nix
+      ../../modules/bluetooth-pan-client/default.nix
+      ../../modules/dhcp-server/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -161,6 +163,7 @@ in
     playerctl
 
     eduvpn-client
+    tcpdump
   ];
 
   # playerctl keep track of which audio source played last
@@ -220,7 +223,7 @@ in
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
 #    settings = {
 #      General = {
 #        ControllerMode = "bredr";
