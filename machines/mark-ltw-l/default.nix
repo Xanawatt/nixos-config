@@ -28,7 +28,7 @@ in
   networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Indiana/Indianapolis";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -125,7 +125,6 @@ in
     fping
     drawio
     sublime4
-    dunst
     obsidian
     teams-for-linux
     python314
