@@ -3,6 +3,7 @@ let
   # CHANGE ME: your public key(s)
   sshKeys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3qOHnWDGlLvECZ8r3vryHyStqyX+AxgjPioyPno1WpXx6tuaA2dPj47nKQelDzufoE+EdDVPmbEg2yzgwf2h7BeIK3jcHltG9ZWU9+KbcBcorhZm5gIe4mqc4it+p3xgt1LaTkR9M+wT+cfwu8TW15K1FIxSg0CUFrWXrEvoGBVHcnaBX2/dBUnOCe6ZKlunJkEYUJ9SXd8iBA8zzsZsBAVmYaIY+yHdGkd2j8u6DdjDWw5u8psni35bXeAVWOek15jCLOFN2lTLmzRcyKCIT4ngUHb6NYNByx3/xoMblbPyWN8oT9HYqiLEQfQSJdr6rhKlUdB/V+KOyC10IUrBj1Qle0WfcjtYkBpQfSNDCXCiVD+cLI06FGs8KIxx/AIkSrLxLhONfgBtvau2h1wtgzIk9k2zncsQovvVJjYnlhCaAYGyRsPnIbS4IEo+oCimvaCeunCNB+I6xWYqFj17SA9ksXwOwA0bpemhM327ZmP/syYfHWupIQbBLrPjHcp8= xanawatt@mark-dt-l"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkxJe1KXlvJh25K+xoVSHfrQ8A7F0hNWzVBv5sRsb6U schne112@mark-ltw-l"
   ];
 in
 {
