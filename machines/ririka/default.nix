@@ -50,7 +50,7 @@ in
         };
     };
 
-    users.users.netops = {
+    users.users.xanawatt = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
         openssh.authorizedKeys.keys = sshKeys;
