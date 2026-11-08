@@ -232,7 +232,8 @@ in
 
   services.udisks2.enable = true;
 
-  
+  # for raspberry pi building
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];  
 
   # work
   services.sassafras.enable = true;
