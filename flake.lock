@@ -20,6 +20,37 @@
         "type": "github"
       }
     },
+    "argononed": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729566243,
+        "narHash": "sha256-DPNI0Dpk5aym3Baf5UbEe5GENDrSmmXVdriRSWE+rgk=",
+        "owner": "nvmd",
+        "repo": "argononed",
+        "rev": "16dbee54d49b66d5654d228d1061246b440ef7cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "repo": "argononed",
+        "type": "github"
+      }
+    },
+    "flake-compat": {
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "frc-nix": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
@@ -83,18 +114,68 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "nixos-images": {
+      "inputs": {
+        "nixos-stable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ],
+        "nixos-unstable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1792503283,
-        "narHash": "sha256-OtQ9jaQ9aXZDm61TqykPLZdXJa2NMykYG3d0tbT683U=",
-        "rev": "cd4ea8d57de16f4810bc5f14207bac45fbf19f67",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.12297.cd4ea8d57de1/nixexprs.tar.zst"
+        "lastModified": 1747747741,
+        "narHash": "sha256-LUOH27unNWbGTvZFitHonraNx0JF/55h30r9WxqrznM=",
+        "owner": "nvmd",
+        "repo": "nixos-images",
+        "rev": "cbbd6db325775096680b65e2a32fb6187c09bbb4",
+        "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
+        "owner": "nvmd",
+        "ref": "sdimage-installer",
+        "repo": "nixos-images",
+        "type": "github"
+      }
+    },
+    "nixos-raspberrypi": {
+      "inputs": {
+        "argononed": "argononed",
+        "flake-compat": "flake-compat",
+        "nixos-images": "nixos-images",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1792868452,
+        "narHash": "sha256-+9G87LoMyhhCQ6RiYwkaV4F5ZTHioIgISHiphQCdWe8=",
+        "owner": "nvmd",
+        "repo": "nixos-raspberrypi",
+        "rev": "28a5affc20c4a73f94af582432f4dfd179b038fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "ref": "main",
+        "repo": "nixos-raspberrypi",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1792615934,
+        "narHash": "sha256-MlvRfa1O5Cqc2/a+gG+l9TSuowEoCKCmrJ1d9oAVm0I=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "da6dc0e7b26060f2f71ce3ef7088fb56ee44fa36",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
         "ref": "nixos-26.05",
-        "type": "indirect"
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-unstable": {
@@ -114,6 +195,20 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1792503283,
+        "narHash": "sha256-OtQ9jaQ9aXZDm61TqykPLZdXJa2NMykYG3d0tbT683U=",
+        "rev": "cd4ea8d57de16f4810bc5f14207bac45fbf19f67",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.12297.cd4ea8d57de1/nixexprs.tar.zst"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-26.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1749857119,
         "narHash": "sha256-tG5xUn3hFaPpAHYIvr2F88b+ovcIO5k1HqajFy7ZFPM=",
@@ -155,7 +250,7 @@
     },
     "parsecgaming": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "parsecDeb": "parsecDeb",
         "parsecMeta": "parsecMeta"
       },
@@ -178,7 +273,8 @@
         "agenix": "agenix",
         "frc-nix": "frc-nix",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixos-raspberrypi": "nixos-raspberrypi",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "parsecgaming": "parsecgaming",
         "zen-browser": "zen-browser"

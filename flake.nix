@@ -26,9 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     parsecgaming.url = "github:DarthPJB/parsec-gaming-nix";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, agenix, home-manager, nixos-raspberrypi, ... }:
     {
     nixosConfigurations = {
       nixos-test = nixpkgs.lib.nixosSystem {
@@ -78,6 +79,24 @@
               backupFileExtension = "backup";
             };
           }
+        ];
+      };
+
+      # nixos-raspberrypi's wrapper adds the RPi overlays (kernel, firmware,
+      # raspberrypi-utils, ...), sets hostPlatform, trusts its binary cache,
+      # and passes `nixos-raspberrypi` via specialArgs.
+      ririka = nixos-raspberrypi.lib.nixosSystem {
+        specialArgs = {
+          overlays = import ./overlays { inherit inputs; };
+          inherit self inputs;
+        };
+        modules = [
+          ({ pkgs, ... }: {
+            # Make securecrt and unstable available
+            nixpkgs.overlays = import ./overlays { inherit inputs; };
+          })
+          agenix.nixosModules.default
+          ./machines/ririka
         ];
       };
 
