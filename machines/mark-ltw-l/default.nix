@@ -28,7 +28,7 @@ in
   networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   # Set your time zone.
-  time.timeZone = "America/Indiana/Indianapolis";
+  time.timeZone = "America/Chicago";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
