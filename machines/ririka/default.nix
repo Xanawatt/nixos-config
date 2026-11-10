@@ -11,6 +11,7 @@ in
         raspberry-pi-5.base
     ] ++ [
         ./hardware-configuration.nix
+        ../../modules/bluetooth-nap
     ];
 
     # Same boot method the installer image uses.
