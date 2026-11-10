@@ -12,6 +12,7 @@ in
     ] ++ [
         ./hardware-configuration.nix
         ../../modules/bluetooth-nap
+        ../../modules/wireguard-igp
     ];
 
     # Same boot method the installer image uses.
@@ -46,8 +47,8 @@ in
     services.openssh = {
         enable = true;
         settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "prohibit-password"; # for deploys
+        PasswordAuthentication = true;
+        PermitRootLogin = "prohibit-password"; # for deploys: root is key-only
         };
     };
 
