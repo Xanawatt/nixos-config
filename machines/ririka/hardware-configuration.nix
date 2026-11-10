@@ -10,8 +10,9 @@
     };
 
     fileSystems."/boot/firmware" = {
-        device = "systemd-1";
-        fsType = "autofs";
+        device = "/dev/disk/by-uuid/2175-794E";
+        fsType = "vfat";
+        options = [ "nofail" ];
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
