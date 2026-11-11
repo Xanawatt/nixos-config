@@ -13,6 +13,7 @@ in
         ./hardware-configuration.nix
         ../../modules/bluetooth-nap
         ../../modules/wireguard-igp
+        ../../modules/bird
     ];
 
     # Same boot method the installer image uses.
@@ -54,7 +55,7 @@ in
 
     users.users.xanawatt = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ "wheel" "bird" ];
         openssh.authorizedKeys.keys = sshKeys;
     };
     users.users.root.openssh.authorizedKeys.keys = sshKeys;
