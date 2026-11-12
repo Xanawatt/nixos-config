@@ -78,7 +78,7 @@ in
 
     environment.systemPackages = with pkgs; [
         vim git tmux htop curl dig
-        tcpdump ethtool iw iperf3 mtr
+        tcpdump ethtool iw iperf3 mtr speedtest-cli
     ];
 
     # CHANGE ME: the first two numbers of `nixos-version` on the installer.

@@ -28,6 +28,10 @@ in
       btw = "echo i use nixos, btw";
     };
   };
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   services.udiskie = {
     enable = true;
