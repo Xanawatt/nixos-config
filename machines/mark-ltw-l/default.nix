@@ -18,6 +18,7 @@ in
       ../../modules/virtualization/default.nix
       ../../modules/bluetooth-pan-client/default.nix
       ../../modules/dhcp-server/default.nix
+      ../../modules/vertoxr/vertoxr.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -28,7 +29,7 @@ in
   networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Indiana/Indianapolis";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -237,6 +238,10 @@ in
 
   # work
   services.sassafras.enable = true;
+
+  vertoxr.user = "schne112";
+  vertoxr.enable = true;
+  #vertoxr.glassesVendorIds = [ "xxxx" ];
 
   nix = {
     settings = {

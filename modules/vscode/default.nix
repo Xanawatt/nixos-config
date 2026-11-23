@@ -5,27 +5,15 @@
 }:
 let
   frcPkgs = inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system};
-#  vscMarketplace = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-#    {
-#      # drblury.protobuf-vsc # replaces zxh404.vscode-proto3
-#      name = "protobuf-vsc";
-#      publisher = "drblury";
-#      version = "1.4.28";
-#      sha256 = "08r1r16xswa8ignsa7zy5j404y677ssiw6wjvjq071wmzblq1pf9";
-#    }
-#    {
-#      name = "vscode-spotless-gradle";
-#      publisher = "richardwillis";
-#      version = "1.2.1";
-#      sha256 = "0sdlg3w5g5v1jcx3qf8lljm2qavj3jas8dgr5gxb3l2yyk8knj1l";
-#    }
-#    {
-#      name = "java";
-#      publisher = "redhat";
-#      version = "1.38.0";
-#      sha256 = "10z352wxgk65b6a0hv9lvanpwmdfnzhg1r3g5fsg1ikgda8q6cgc";
-#    }
-#  ];
+  vscMarketplace = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    {
+      name = "google-antigravity";
+      publisher = "google";
+      version = "1.13.0";
+      sha256 = "sha256-t4b7bsG6v9t7LD5ayr2VFINTnSh5I6Y82n4BV7zwRwQ=";
+    }
+
+  ];
 
   # deps to run avalonia WPILIB installer (don't do this: waste of time)
   #
@@ -154,7 +142,7 @@ let
       streetsidesoftware.code-spell-checker
       anthropic.claude-code
     ]
- #   ++ vscMarketplace
+    ++ vscMarketplace
     ++ [ frcPkgs.vscode-wpilib ];
 
   vscFinal = pkgs.vscode-with-extensions.override {
