@@ -27,9 +27,14 @@
     };
     parsecgaming.url = "github:DarthPJB/parsec-gaming-nix";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, home-manager, nixos-raspberrypi, ... }:
+  outputs = inputs@{ self, nixpkgs, agenix, home-manager, nixos-raspberrypi, winapps, ... }:
     {
     nixosConfigurations = {
       nixos-test = nixpkgs.lib.nixosSystem {

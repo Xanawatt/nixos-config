@@ -98,6 +98,12 @@ in
     inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.advantagescope
     inputs.frc-nix.packages.${pkgs.stdenv.hostPlatform.system}.vscode-wpilib
 
+    # WinApps
+    inputs.winapps.packages.${pkgs.stdenv.hostPlatform.system}.winapps
+    inputs.winapps.packages.${pkgs.stdenv.hostPlatform.system}.winapps-launcher
+    freerdp
+
+
     grim
 #    wayrecorder
     slurp
@@ -242,6 +248,8 @@ in
   vertoxr.user = "schne112";
   vertoxr.enable = true;
   #vertoxr.glassesVendorIds = [ "xxxx" ];
+
+  
 
   nix = {
     settings = {

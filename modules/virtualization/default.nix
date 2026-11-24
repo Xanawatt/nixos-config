@@ -75,6 +75,8 @@ in
       extraGroups = [ "libvirtd" "kvm" ];
     });
 
+    environment.sessionVariables.LIBVIRT_DEFAULT_URI = "qemu:///system";
+
     environment.systemPackages = with pkgs; [
       virt-viewer     # remote-viewer for SPICE consoles
       spice-gtk
