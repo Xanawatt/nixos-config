@@ -19,6 +19,7 @@ in
       ../../modules/bluetooth-pan-client/default.nix
       ../../modules/dhcp-server/default.nix
       ../../modules/vertoxr/vertoxr.nix
+      ../../modules/purdue-vpn/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
